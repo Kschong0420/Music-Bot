@@ -26,17 +26,20 @@ fs.readdir("./commands/", (err, files) => {
   })
 })
 
+//status
 client.once('ready', () => {
   client.user.setActivity('Chocola', {
     type: 'WATCHING'
   })
 })
 
+//remind membercount countdown
 client.once('ready', () => {
   console.log('Member Counter Started Countdown!')
   memberCounter(client)
 })
 
+//deleted message log
 client.on('messageDelete', async message => {
   const logchannel = message.guild.channels.cache.find(ch => ch.name === 'logchannel')
   if (!logchannel) return
@@ -54,6 +57,7 @@ client.on('messageDelete', async message => {
   logchannel.send(embed)
 })
 
+//updated message log
 client.on('messageUpdate', async message => {
   const logchannel = message.guild.channels.cache.find(ch => ch.name === 'logchannel')
   if (!logchannel) return
@@ -71,6 +75,7 @@ client.on('messageUpdate', async message => {
   logchannel.send(embed)
 })
 
+//urban
 client.on('message', async message => {
   const prefix = process.env.PREFIX
   const args = message.content.substring(prefix.length).split(' ')
@@ -112,6 +117,7 @@ client.on('message', async message => {
   }
 });
 
+//afk core
 client.afk = new Map();
 client.on("message", async message => {
   if (message.author.bot) return;
@@ -142,12 +148,14 @@ client.on("message", async message => {
   require(`./handlers/${handler}`)(client, Discord)
 })
 
+//remind music bot ready
 client.on("ready", () => {
   console.log(`${client.user.tag} is ready to play music.`)
 //const server = client.voice.connections.size
 //client.user.setActivity({ type: "PLAYING", name: `music on ${server} servers` })
 })
 
+//music bot core require distube
 client.on("message", async message => {
   const prefix = config.prefix
   if (!message.content.startsWith(prefix)) return
@@ -197,4 +205,6 @@ client.login(process.env.DISCORD_TOKEN)
 // 1.codelyon  - newbie suitable tutorial 
 // 2.fusion terror - useful code and clear
 // 3.reconlx (and his npm package) - make bot more fun and fuction with lot of npm package
+
+//made by Kschong0420_
 
