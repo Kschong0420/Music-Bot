@@ -1,5 +1,5 @@
 # Music-Bot
 Distube npm bot
 
-require distube and rework by Kschong0420
+require distube and rework by Kschong0420_
 
