@@ -7,6 +7,10 @@
         "queue": "📄",
         "success": "☑️",
         "repeat": "🔁",
-        "error": "❌"
+        "error": "❌",
+        "pause": "⏸",
+        "resume": "▶"
     }
 }
+
+
